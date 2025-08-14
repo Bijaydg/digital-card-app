@@ -27,9 +27,9 @@ try {
   app = initializeApp(firebaseConfig);
   db = getFirestore(app);
   analytics = getAnalytics(app);
-  console.log("✅ Firebase connected");
+  console.log("Firebase connected");
 } catch (error) {
-  console.error("❌ Firebase initialization failed:", error);
+  console.error("Firebase initialization failed:", error);
 }
 
 // =======================
@@ -43,7 +43,7 @@ export const getCardData = async (cardId = 'user-card') => {
     const snap = await getDoc(cardRef);
     return snap.exists() ? snap.data() : null;
   } catch (error) {
-    console.error("❌ Error fetching card data:", error);
+    console.error("Error fetching card data:", error);
     return null;
   }
 };
@@ -60,7 +60,7 @@ export const saveCardData = async (cardData, cardId = 'user-card') => {
     await setDoc(cardRef, dataToSave);
     return true;
   } catch (error) {
-    console.error("❌ Error saving card data:", error);
+    console.error("Error saving card data:", error);
     return false;
   }
 };
@@ -75,7 +75,7 @@ export const updateCardData = async (updates, cardId = 'user-card') => {
     });
     return true;
   } catch (error) {
-    console.error("❌ Error updating card data:", error);
+    console.error("Error updating card data:", error);
     return false;
   }
 };
@@ -87,7 +87,7 @@ export const deleteCardData = async (cardId = 'user-card') => {
     await deleteDoc(cardRef);
     return true;
   } catch (error) {
-    console.error("❌ Error deleting card data:", error);
+    console.error("Error deleting card data:", error);
     return false;
   }
 };
@@ -101,10 +101,10 @@ export const testFirebaseConnection = async () => {
       message: 'Connection test successful'
     });
     await deleteDoc(testRef);
-    console.log("✅ Firebase connection working");
+    console.log("Firebase connection working");
     return true;
   } catch (error) {
-    console.error("❌ Firebase connection test failed:", error);
+    console.error("Firebase connection test failed:", error);
     return false;
   }
 };
